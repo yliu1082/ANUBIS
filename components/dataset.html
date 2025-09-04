@@ -1,0 +1,180 @@
+<section id="dataset" class="section">
+    
+    <h2>Dataset</h2>
+
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">102</span>
+                <div class="stat-label">Classes</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">80</span>
+                <div class="stat-label">Subjects</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">66,232</span>
+                <div class="stat-label">Clips</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">80</span>
+                <div class="stat-label">Views</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">32</span>
+                <div class="stat-label">Joints</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dataset Overview - 现在放在前面 -->
+    <div class="dataset-overview">
+        <h3>Dataset Overview</h3>
+        <div class="overview-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+            <div class="overview-text">
+                <p>The ANUBIS dataset represents a significant advancement in skeletal action recognition benchmarking. It addresses critical limitations in existing datasets by providing comprehensive multi-viewpoint coverage including systematic rear-view perspectives.</p>
+                <p>Our dataset captures 102 distinct action classes performed by 80 subjects across 80 synchronized viewpoints, resulting in over 66,000 video clips. Using Microsoft Azure Kinect devices, we provide superior skeleton extraction accuracy with 32-joint 3D skeletal data.</p>
+            </div>
+            <div class="overview-image" style="display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 200px; background: #f8f9fa; border-radius: 12px; border: 2px dashed #d4a574;">
+                <img src="images/piechart.png" alt="dataset-piechart" style="max-width: 80%; height: auto; color: #7f8c8d; font-size: 1.1rem;">
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #7f8c8d; font-style: italic;">
+                    Distribution of 102 human actions classified into four categories.
+                </p>
+            </div>
+        </div>
+        <div class="key-features">
+            <h4>Key Dataset Features</h4>
+            <ul class="feature-list">
+                <li>80 synchronized viewpoints with systematic rear-view coverage</li>
+                <li>32-joint 3D skeletal representation with precise temporal alignment</li>
+                <li>102 action classes spanning social, aggressive, and independent behaviors</li>
+                <li>Multi-person interaction scenarios with complex dynamics</li>
+                <li>Microsoft Azure Kinect for superior skeleton extraction accuracy</li>
+                <li>Comprehensive evaluation protocols for representation learning</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Dataset Examples - 现在放在后面，修改为三列布局 -->
+    <div style="margin-top: 4rem;">
+        <h3 style="text-align: center; font-size: 2rem; color: #2c3e50; margin-bottom: 1rem; font-weight: 700;">Dataset Examples</h3>
+        <p class="section-intro">Each sample includes RGB video, 3D skeletal data, and depth information for comprehensive multi-modal action analysis.</p>
+        
+        <div class="examples-container">
+            <div class="example-item">
+                <div class="example-header">
+                    <h4 class="action-name">Punch to Face</h4>
+                    <div class="action-meta">
+                        <span class="viewpoint-info">Multi-person • Aggressive actions</span>
+                    </div>
+                </div>
+                <div class="video-triple" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                    <div class="video-column">
+                        <div class="video-label">RGB Video</div>
+                        <div class="video-wrapper">
+                            <video controls poster="videos/thumbnails/punch_to_face.jpg">
+                                <source src="videos/punch_to_face.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">3D Skeleton</div>
+                        <div class="video-wrapper">
+                            <video controls poster="videos/skeletons/punch_to_face_skeleton.jpg">
+                                <source src="videos/skeletons/punch_to_face_skeleton.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">Depth Video</div>
+                        <div class="video-wrapper">
+                            <video controls poster="videos/depth/punch_to_face_depth.jpg">
+                                <source src="videos/depth/punch_to_face_depth.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-item">
+                <div class="example-header">
+                    <h4 class="action-name">Cheers and Drinks</h4>
+                    <div class="action-meta">
+                        <span class="viewpoint-info">Multi-person • Social Interaction</span>
+                    </div>
+                </div>
+                <div class="video-triple" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                    <div class="video-column">
+                        <div class="video-label">RGB Video</div>
+                        <div class="video-wrapper">
+                            <video controls poster="videos/thumbnails/cheers_and_drinks.jpg">
+                                <source src="videos/cheers_and_drinks.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">3D Skeleton</div>
+                        <div class="video-wrapper">
+                            <video controls poster="videos/skeletons/cheers_and_drinks_skeleton.jpg">
+                                <source src="videos/skeletons/cheers_and_drinks_skeleton.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">Depth Video</div>
+                        <div class="video-wrapper">
+                            <video controls poster="videos/depth/cheers_and_drinks_depth.jpg">
+                                <source src="videos/depth/cheers_and_drinks_depth.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-item">
+                <div class="example-header">
+                    <h4 class="action-name">Bow</h4>
+                    <div class="action-meta">
+                        <span class="viewpoint-info">Multi-person • Social Interaction</span>
+                    </div>
+                </div>
+                <div class="video-triple" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                    <div class="video-column">
+                        <div class="video-label">RGB Video</div>
+                        <div class="video-wrapper">
+                            <video controls poster="videos/thumbnails/bow.jpg">
+                                <source src="videos/bow.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">3D Skeleton</div>
+                        <div class="video-wrapper">
+                            <video controls poster="videos/skeletons/bow_skeleton.jpg">
+                                <source src="videos/skeletons/bow_skeleton.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">Depth Video</div>
+                        <div class="video-wrapper">
+                            <video controls poster="videos/depth/bow_depth.jpg">
+                                <source src="videos/depth/bow_depth.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

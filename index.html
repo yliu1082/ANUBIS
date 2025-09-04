@@ -1,89 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANUBIS - Representation-Centric Survey of Skeletal Action Recognition</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">ANUBIS</a>
+            <ul class="nav-links">
+                <li><a href="#authors">Authors</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#dataset">Dataset</a></li>
+                <li><a href="#benchmark">Benchmark</a></li>
+                <li><a href="#citation">Citation</a></li>
+            </ul>
+        </div>
+    </nav>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta name="description" content="The Page Description">
-		<style type="text/css">@-ms-viewport{width: device-width;}</style>
-		<title>ANUBIS</title>
-		<link rel="stylesheet" href="css/layers.min.css" media="screen">
-		<link rel="stylesheet" href="css/font-awesome.min.css" media="screen"> 
-		<link rel="stylesheet" href="style.css" media="screen">
-		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-		<![endif]-->
-		<link rel="icon" href="img/icons/logo.png">
-		<!-- Added custom style for button positioning -->
-		<!-- Added custom style for button positioning -->
-		<style type="text/css">
-			.bottom-caption {
-				position: absolute;
-				bottom: 50px;
-				width: 100%;
-				text-align: center;
-				z-index: 10; /* Ensure it's above other elements */
-				pointer-events: auto; /* Make sure it can receive click events */
-			}
-			
-			.intro-item {
-				position: relative; /* Make sure it properly contains the absolutely positioned element */
-			}
-		</style>
-	</head>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Representation-Centric Survey of Skeletal Action Recognition and the ANUBIS Benchmark</h1>
+                <p class="subtitle">A comprehensive survey and large-scale benchmark for skeletal action recognition</p>
+                
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">📄 Paper</a>
+                    <a href="#" class="btn btn-secondary">📊 Dataset</a>
+                    <a href="#" class="btn btn-secondary">💾 Code</a>
+                </div>
+            </div>
+        </section>
 
-	<body class="page">
+        <!-- Authors Section -->
+        <div id="authors-section"></div>
 
-		<header role="banner" class="transparent light">
-			<div class="row">
-				<div class="nav-inner row-content buffer-left buffer-right even clear-after">
-					<div id="brand">
-						<!-- <h1 class="reset"><img src="img/logo.png" alt="logo"><a href="https://qinlab.notion.site/HandCraft-Anatomically-Correct-Restoration-of-Malformed-Hands-in-Diffusion-Generated-Images-191ae354047281ec991bd40a7119da22?pvs=4">HandCraft</a></h1> -->
-						<h1 class="reset"><a href="">ANUBIS</a></h1>
-					</div><!-- brand -->
-					<a id="menu-toggle" href="#"><i class="fa fa-bars fa-lg"></i></a>
-					<nav>
-						<!-- <ul class="reset" role="navigation">
-							<li class="menu-item">
-								<a href="https://arxiv.org/abs/2411.04332">Paper</a>
-							</li>
-							<li class="menu-item">
-								<a href="https://huggingface.co/spaces/zhenyueqin/handcraft">Demo</a>
-							</li>
-							<li class="menu-item">
-								<a href="https://huggingface.co/spaces/zhenyueqin/handcraft/tree/main">Code</a>
-							</li>
-						</ul> -->
-					</nav>
-				</div><!-- row-content -->	
-			</div><!-- row -->	
-		</header>
+        <!-- Overview Section -->
+        <div id="overview-section"></div>
 
-		<main role="main">
-			<div id="intro-wrap" class="full-height">
-				<div id="intro" class="preload darken" data-navigation="true" data-pagination="true" data-transition="fadeUp">
-					<!-- <div class="intro-item" style="background-image: url(img/backgrounds/handcraft_anime.gif);"> -->
-					<div class="intro-item">
-						<div class="caption">
-							<h2> Representation-Centric Survey of Skeletal Action Recognition and the ANUBIS Benchmark </h2>
-							<!-- <h2> Anatomically Correct Restoration of Malformed Hands in Diffusion Generated Images </h2> -->
-							<!-- <p><strong>WACV 2025</strong></p> -->
-						</div>
-						<div class="bottom-caption">
-							<!-- <a class="button white transparent" href="https://qinlab.notion.site/HandCraft-Anatomically-Correct-Restoration-of-Malformed-Hands-in-Diffusion-Generated-Images-191ae354047281ec991bd40a7119da22?pvs=4">Know More</a> -->
-							<a class="button white transparent">Under Construction</a>
-						</div>
-						<!-- caption -->
-					</div>									
-				</div><!-- intro -->
-			</div><!-- intro-wrap -->
+        <!-- Dataset Section -->
+        <div id="dataset-section"></div>
 
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>		
-		<script src="js/plugins.js"></script>
-		<script src="js/beetle.js"></script>
+        <!-- Results Section -->
+        <div id="results-section"></div>
 
-	</body>
 
+        <!-- Citation Section -->
+        <div id="citation-section"></div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Load all sections
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSection('components/authors.html', 'authors-section');
+            loadSection('components/overview.html', 'overview-section');
+            loadSection('components/dataset.html', 'dataset-section');
+            loadSection('components/results.html', 'results-section');
+            loadSection('components/citation.html', 'citation-section');
+        });
+
+        function loadSection(file, targetId) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(targetId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading section:', error));
+        }
+    </script>
+</body>
 </html>
