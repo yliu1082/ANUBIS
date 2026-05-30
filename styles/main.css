@@ -75,15 +75,30 @@ nav.nav-hidden { transform: translateY(-100%); opacity: 0; pointer-events: none;
     display: flex; justify-content: space-between; align-items: center;
 }
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: 4px;
     color: var(--gold);
     text-decoration: none;
     text-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
-    transition: text-shadow var(--transition);
+    transition: text-shadow var(--transition), transform var(--transition);
 }
-.logo:hover { text-shadow: 0 0 30px rgba(197, 160, 89, 0.8); }
+.logo:hover {
+    text-shadow: 0 0 30px rgba(197, 160, 89, 0.8);
+    transform: translateY(-1px);
+}
+.logo-icon {
+    width: 2.35rem;
+    height: 2.35rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid rgba(197, 160, 89, 0.58);
+    box-shadow: 0 0 18px rgba(197, 160, 89, 0.26);
+    flex: 0 0 auto;
+}
 .nav-links { list-style: none; display: flex; gap: 2.5rem; }
 .nav-links a {
     text-decoration: none;
