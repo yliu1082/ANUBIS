@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+    <canvas id="egyptian-canvas"></canvas>
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">ANUBIS</a>
@@ -20,57 +21,690 @@
         </div>
     </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Representation-Centric Survey of Skeletal Action Recognition and the ANUBIS Benchmark</h1>
-                <p class="subtitle">A comprehensive survey and large-scale benchmark for skeletal action recognition</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Representation-Centric Survey of Skeletal Action Recognition and the ANUBIS Benchmark</h1>
+            
+            <div class="hero-buttons">
+                <a href="https://arxiv.org/abs/2205.02071" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    Paper
+                </a>
+                <a href="https://huggingface.co/datasets/Khat865/Anubis-skeleton" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                    Dataset
+                </a>
+                <a href="https://github.com/yliu1082/ANUBIS-Sourcecode" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    Code
+                </a>
+            </div>
+
+            <div class="authors-section" id="authors">
+                <div class="authors-list">
+                    <span class="author-name first-author">
+                        Yang Liu*<sup>1</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name first-author">
+                        Jiyao Yang*<sup>2</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name">
+                        Madhawa Perera<sup>3</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name">
+                        Pan Ji<sup>4</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name">
+                        Dongwoo Kim<sup>5</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name">
+                        Min Xu<sup>6</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name">
+                        Tianyang Wang<sup>2</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name">
+                        Saeed Anwar<sup>7</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name">
+                        Tom Gedeon<sup>8</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name corresponding">
+                        Lei Wang†<sup>3,9</sup>
+                    </span>
+                    <span class="separator">•</span>
+                    <span class="author-name corresponding">
+                        Zhenyue Qin†<sup>1</sup>
+                    </span>
+                </div>
                 
-                <div class="hero-buttons">
-                    <a href="https://arxiv.org/abs/2205.02071" class="btn btn-primary">📄 Paper</a>
-                    <a href="https://huggingface.co/datasets/Khat865/Anubis-skeleton" class="btn btn-secondary">📊 Dataset</a>
-                    <a href="https://github.com/yliu1082/ANUBIS-Sourcecode" class="btn btn-secondary">💾 Code</a>
+                <div class="affiliations-list">
+                    <span><sup>1</sup>Australian National University</span>
+                    <span class="separator">•</span>
+                    <span><sup>2</sup>University of Alabama at Birmingham</span>
+                    <span class="separator">•</span>
+                    <span><sup>3</sup>Data61 CSIRO</span>
+                    <span class="separator">•</span>
+                    <span><sup>4</sup>OPPO US Research Center</span>
+                    <span class="separator">•</span>
+                    <span><sup>5</sup>POSTECH</span>
+                    <span class="separator">•</span>
+                    <span><sup>6</sup>Carnegie Mellon University</span>
+                    <span class="separator">•</span>
+                    <span><sup>7</sup>University of Western Australia</span>
+                    <span class="separator">•</span>
+                    <span><sup>8</sup>Curtin University</span>
+                    <span class="separator">•</span>
+                    <span><sup>9</sup>Griffith University</span>
+                </div>
+
+                <div class="authors-note">
+                    *Equal contribution &nbsp;&nbsp;&nbsp;&nbsp; †Corresponding authors
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Authors Section -->
-        <div id="authors-section"></div>
+    <main>
 
-        <!-- Overview Section -->
-        <div id="overview-section"></div>
+        <div id="overview-section">
+<section id="overview" class="section">
+    <h2 >Overview</h2>
+    
+    <ul class="feature-list" style="margin-bottom: 3rem; font-size: 1.15rem;">
+        <li><strong style="color: var(--accent-terracotta);">Representation-centric Survey:</strong> A systematic review that categorizes methods by input representation (Joint, Bone, Motion, Derived) and analyzes their roles in spatial and temporal modeling.</li>
+        <li><strong style="color: var(--accent-terracotta);">ANUBIS Dataset:</strong> A large-scale benchmark with 102 action classes and 80 viewpoints (including systematic rear-view capture), containing complex multi-person, aggressive, and socially relevant actions.</li>
+        <li><strong style="color: var(--accent-terracotta);">Comprehensive Benchmarking:</strong> Evaluation of state-of-the-art models on ANUBIS, revealing representation-dependent performance trends and highlighting the need for task-aware, semantically aligned fusion.</li>
+    </ul>
 
-        <!-- Dataset Section -->
-        <div id="dataset-section"></div>
+    <div class="contributions-image" >
+        <div >
+            <img src="images/arc.png" alt="ANUBIS Key Contributions Overview" >
+            <p >
+                Evolution of skeleton-based action recognition methods from 2014 to 2025.
+            </p>
+        </div>
+    </div>
+</section>
+</div>
 
-        <!-- Results Section -->
-        <div id="results-section"></div>
+        <div id="dataset-section">
+<section id="dataset" class="section">
+    
+    <h2>Dataset</h2>
+
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">102</span>
+                <div class="stat-label">Classes</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">80</span>
+                <div class="stat-label">Subjects</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">66,232</span>
+                <div class="stat-label">Clips</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">80</span>
+                <div class="stat-label">Views</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">32</span>
+                <div class="stat-label">Joints</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dataset Overview -->
+    <div class="dataset-overview">
+        <h3>Dataset Overview</h3>
+        <div class="overview-content">
+            <div class="overview-text">
+                <p>The ANUBIS dataset represents a significant advancement in skeletal action recognition benchmarking. It addresses critical limitations in existing datasets by providing comprehensive multi-viewpoint coverage including systematic rear-view perspectives.</p>
+                <p>Our dataset captures 102 distinct action classes performed by 80 subjects across 80 synchronized viewpoints, resulting in over 66,000 video clips. Using Microsoft Azure Kinect devices, we provide superior skeleton extraction accuracy with 32-joint 3D skeletal data.</p>
+            </div>
+            <div class="key-features">
+                <h4>Key Dataset Features</h4>
+                <ul class="feature-list">
+                    <li>80 synchronized viewpoints with systematic rear-view coverage</li>
+                    <li>32-joint 3D skeletal representation with precise temporal alignment</li>
+                    <li>102 action classes spanning social, aggressive, and independent behaviors</li>
+                    <li>Multi-person interaction scenarios with complex dynamics</li>
+                    <li>Microsoft Azure Kinect for superior skeleton extraction accuracy</li>
+                    <li>Comprehensive evaluation protocols for representation learning</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dataset Examples - 现在放在后面，修改为三列布局 -->
+    <div >
+        <h3 >Dataset Examples</h3>
+        <p class="section-intro">Each sample includes RGB video, 3D skeletal data, and depth information for comprehensive multi-modal action analysis.</p>
+        
+        <div class="examples-container">
+            <div class="example-item">
+                <div class="example-header">
+                    <h4 class="action-name">Punch to Face</h4>
+                    <div class="action-meta">
+                        <span class="viewpoint-info">Multi-person • Aggressive actions</span>
+                    </div>
+                </div>
+                <div class="video-triple" >
+                    <div class="video-column">
+                        <div class="video-label">RGB Video</div>
+                        <div class="video-wrapper">
+                            <video controls>
+                                <source src="videos/punch_to_face.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">3D Skeleton</div>
+                        <div class="video-wrapper">
+                            <video controls>
+                                <source src="videos/skeletons/punch_to_face_skeleton.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">Depth Video</div>
+                        <div class="video-wrapper">
+                            <video controls>
+                                <source src="videos/depth/punch_to_face_depth.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-item">
+                <div class="example-header">
+                    <h4 class="action-name">Cheers and Drinks</h4>
+                    <div class="action-meta">
+                        <span class="viewpoint-info">Multi-person • Social Interaction</span>
+                    </div>
+                </div>
+                <div class="video-triple" >
+                    <div class="video-column">
+                        <div class="video-label">RGB Video</div>
+                        <div class="video-wrapper">
+                            <video controls>
+                                <source src="videos/cheers_and_drinks.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">3D Skeleton</div>
+                        <div class="video-wrapper">
+                            <video controls>
+                                <source src="videos/skeletons/cheers_and_drinks_skeleton.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">Depth Video</div>
+                        <div class="video-wrapper">
+                            <video controls>
+                                <source src="videos/depth/cheers_and_drinks_depth.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-item">
+                <div class="example-header">
+                    <h4 class="action-name">Bow</h4>
+                    <div class="action-meta">
+                        <span class="viewpoint-info">Multi-person • Social Interaction</span>
+                    </div>
+                </div>
+                <div class="video-triple" >
+                    <div class="video-column">
+                        <div class="video-label">RGB Video</div>
+                        <div class="video-wrapper">
+                            <video controls>
+                                <source src="videos/bow.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">3D Skeleton</div>
+                        <div class="video-wrapper">
+                            <video controls>
+                                <source src="videos/skeletons/bow_skeleton.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="video-column">
+                        <div class="video-label">Depth Video</div>
+                        <div class="video-wrapper">
+                            <video controls>
+                                <source src="videos/depth/bow_depth.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+</div>
+
+        <div id="results-section">
+
+<section id="results" class="section">
+    <h2>Benchmark Results</h2>
+    <div class="results-section">
+        <!-- Performance Summary Cards -->
+        <div class="performance-summary" >
+            <div class="summary-card" >
+                <div >Best NTU60 X-View</div>
+                <div >97.8%</div>
+                <div >Skateformer</div>
+                <div ><strong>ECCV</strong> 2024</div>
+            </div>
+            <div class="summary-card" >
+                <div >Best NTU120 X-Set</div>
+                <div >92.1%</div>
+                <div >DeGCN</div>
+                <div ><strong>TIP</strong> 2024</div>
+            </div>
+            <div class="summary-card" >
+                <div >Best ANUBIS Top-1</div>
+                <div >60.33%</div>
+                <div >LA-GCN</div>
+                <div ><strong>TMM</strong> 2025</div>
+            </div>
+            <div class="summary-card" >
+                <div >Best ANUBIS Top-5</div>
+                <div >86.87%</div>
+                <div >LA-GCN</div>
+                <div ><strong>TMM</strong> 2025</div>
+            </div>
+        </div>
+
+        <!-- Note -->
+        <div >
+            <p ><strong>Note:</strong> While NTU60 and NTU120 results are approaching saturation, ANUBIS presents a substantially more challenging benchmark with significant room for improvement, highlighting the need for more robust skeletal action recognition methods.</p>
+        </div>
+
+        <!-- Main Results Table -->
+        <div class="table-container" >
+            <div class="table-header" >
+                <h3 >Leaderboard</h3>
+                <p >Performance across NTU60, NTU120, and ANUBIS datasets</p>
+            </div>
+            
+            <div >
+                <table class="complete-results-table" >
+                    <thead>
+                        <tr >
+                            <th rowspan="2" >Method</th>
+                            <th rowspan="2" >Venue</th>
+                            <th rowspan="2" >Features</th>
+                            <th colspan="2" >NTU60</th>
+                            <th colspan="2" >NTU120</th>
+                            <th colspan="2" >ANUBIS</th>
+                            <th rowspan="2" >Params<br>(M)</th>
+                            <th rowspan="2" >GFLOPs</th>
+                        </tr>
+                        <tr >
+                            <th >X-Sub</th>
+                            <th >X-View</th>
+                            <th >X-Sub</th>
+                            <th >X-Set</th>
+                            <th >Top-1</th>
+                            <th >Top-5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Joint-based Methods -->
+                        <tr class="category-header"><td colspan="11">&nbsp;</td></tr>
+                        <tr>
+                            <td>STGCN</td>
+                            <td>AAAI'18</td>
+                            <td><span class="badge badge-joint">Joint</span></td>
+                            <td>81.5</td>
+                            <td>88.3</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>50.25</td>
+                            <td>79.96</td>
+                            <td>3.4</td>
+                            <td>45.23</td>
+                        </tr>
+                        <tr>
+                            <td>Motif-STGCN</td>
+                            <td>AAAI'19</td>
+                            <td><span class="badge badge-joint">Joint</span></td>
+                            <td>84.2</td>
+                            <td>90.2</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>55.76</td>
+                            <td>83.96</td>
+                            <td>1.78</td>
+                            <td>27.10</td>
+                        </tr>
+
+                        <!-- Joint+Bone Methods -->
+                        <tr class="category-header"><td colspan="11">&nbsp;</td></tr>
+                        <tr>
+                            <td>2s-AGCN</td>
+                            <td>CVPR'19</td>
+                            <td><span class="badge badge-jb">Joint+Bone</span></td>
+                            <td>88.5</td>
+                            <td>95.1</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>57.26</td>
+                            <td>84.86</td>
+                            <td>3.47</td>
+                            <td>47.84</td>
+                        </tr>
+                        <tr>
+                            <td>MS-G3D</td>
+                            <td>CVPR'20</td>
+                            <td><span class="badge badge-jb">Joint+Bone</span></td>
+                            <td>91.5</td>
+                            <td>96.2</td>
+                            <td>86.9</td>
+                            <td>88.4</td>
+                            <td>54.17</td>
+                            <td>82.05</td>
+                            <td>3.8</td>
+                            <td>62.72</td>
+                        </tr>
+                        <tr>
+                            <td>GCN-NAS</td>
+                            <td>AAAI'20</td>
+                            <td><span class="badge badge-jb">Joint+Bone</span></td>
+                            <td>89.4</td>
+                            <td>95.7</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>56.40</td>
+                            <td>84.37</td>
+                            <td>6.57</td>
+                            <td>93.64</td>
+                        </tr>
+                        <tr>
+                            <td>HD-GCN</td>
+                            <td>ICCV'23</td>
+                            <td><span class="badge badge-jb">Joint+Bone</span></td>
+                            <td>93.4</td>
+                            <td>97.2</td>
+                            <td>90.1</td>
+                            <td>91.6</td>
+                            <td>51.33</td>
+                            <td>80.96</td>
+                            <td>8.8</td>
+                            <td>12.74</td>
+                        </tr>
+
+                        <!-- Joint+Motion Methods -->
+                        <tr class="category-header"><td colspan="11">&nbsp;</td></tr>
+                        <tr>
+                            <td>RA-GCN</td>
+                            <td>ICIP'19</td>
+                            <td><span class="badge badge-jm">Joint+Motion</span></td>
+                            <td>85.9</td>
+                            <td>93.5</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>41.87</td>
+                            <td>73.45</td>
+                            <td>10.26</td>
+                            <td>135.52</td>
+                        </tr>
+
+                        <!-- Multi-modal Methods -->
+                        <tr class="category-header"><td colspan="11">&nbsp;</td></tr>
+                        <tr>
+                            <td>Shift-GCN</td>
+                            <td>CVPR'20</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td>90.7</td>
+                            <td>96.5</td>
+                            <td>85.9</td>
+                            <td>87.6</td>
+                            <td>26.84</td>
+                            <td>57.50</td>
+                            <td>0.73</td>
+                            <td>6.16</td>
+                        </tr>
+                        <tr>
+                            <td>Decoupling-GCN</td>
+                            <td>ECCV'20</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td>90.8</td>
+                            <td>96.6</td>
+                            <td>86.5</td>
+                            <td>88.1</td>
+                            <td>52.32</td>
+                            <td>80.06</td>
+                            <td>3.63</td>
+                            <td>32.98</td>
+                        </tr>
+                        <tr>
+                            <td>CTR-GCN</td>
+                            <td>ICCV'21</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td>92.4</td>
+                            <td>96.8</td>
+                            <td>88.9</td>
+                            <td>90.4</td>
+                            <td>37.90</td>
+                            <td>70.40</td>
+                            <td>10.07</td>
+                            <td>141.68</td>
+                        </tr>
+                        <tr>
+                            <td>STTFormer</td>
+                            <td>arxiv'22</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td>92.3</td>
+                            <td>96.5</td>
+                            <td>88.3</td>
+                            <td>89.2</td>
+                            <td>57.77</td>
+                            <td>85.30</td>
+                            <td>6.6</td>
+                            <td>109.08</td>
+                        </tr>
+                        <tr>
+                            <td>Hyperformer</td>
+                            <td>arxiv'22</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td>92.9</td>
+                            <td>96.5</td>
+                            <td>89.9</td>
+                            <td>91.3</td>
+                            <td>47.51</td>
+                            <td>77.77</td>
+                            <td>3.1</td>
+                            <td>32.68</td>
+                        </tr>
+                        <tr>
+                            <td>InfoGCN</td>
+                            <td>CVPR'22</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td>93.0</td>
+                            <td>97.1</td>
+                            <td>89.4</td>
+                            <td>90.7</td>
+                            <td>46.99</td>
+                            <td>76.69</td>
+                            <td>1.6</td>
+                            <td>19.97</td>
+                        </tr>
+                        <tr>
+                            <td>BlockGCN</td>
+                            <td>CVPR'24</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td>93.1</td>
+                            <td>97.0</td>
+                            <td>90.3</td>
+                            <td>91.5</td>
+                            <td>54.46</td>
+                            <td>81.73</td>
+                            <td>2.5</td>
+                            <td>36.79</td>
+                        </tr>
+                        <tr>
+                            <td>Skateformer</td>
+                            <td>ECCV'24</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td><span class="second">93.5☆</span></td>
+                            <td><span class="best">97.8★</span></td>
+                            <td>89.8</td>
+                            <td>91.4</td>
+                            <td>45.02</td>
+                            <td>75.43</td>
+                            <td>3.8</td>
+                            <td>8.93</td>
+                        </tr>
+                        <tr>
+                            <td>DS-STGCN</td>
+                            <td>TIP'24</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td>93.2</td>
+                            <td><span class="second">97.5☆</span></td>
+                            <td>89.4</td>
+                            <td>91.2</td>
+                            <td>52.43</td>
+                            <td>81.96</td>
+                            <td>1.4</td>
+                            <td>14.09</td>
+                        </tr>
+                        <tr>
+                            <td>DeGCN</td>
+                            <td>TIP'24</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td><span class="best">93.6★</span></td>
+                            <td>97.4</td>
+                            <td><span class="best">91.0★</span></td>
+                            <td><span class="best">92.1★</span></td>
+                            <td><span class="second">60.16☆</span></td>
+                            <td><span class="second">85.63☆</span></td>
+                            <td>1.4</td>
+                            <td>9.75</td>
+                        </tr>
+                        <tr>
+                            <td>ProtoGCN</td>
+                            <td>CVPR'25</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td><span class="second">93.5☆</span></td>
+                            <td><span class="second">97.5☆</span></td>
+                            <td>90.4</td>
+                            <td><span class="second">91.9☆</span></td>
+                            <td>47.56</td>
+                            <td>78.10</td>
+                            <td>4.2</td>
+                            <td>29.88</td>
+                        </tr>
+                        <tr>
+                            <td>LA-GCN</td>
+                            <td>TMM'25</td>
+                            <td><span class="badge badge-jbm">Joint+Bone+Motion</span></td>
+                            <td><span class="second">93.5☆</span></td>
+                            <td>97.2</td>
+                            <td><span class="second">90.7☆</span></td>
+                            <td>91.8</td>
+                            <td><span class="best">60.33★</span></td>
+                            <td><span class="best">86.87★</span></td>
+                            <td>3.4</td>
+                            <td>28.32</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- LA-GCN Confusion Matrix Section -->
+<section id="confusion-matrix" class="section">
+    <div class="confusion-section">
+        <div class="table-container" >
+            <div class="table-header" >
+                <h4 >ANUBIS Dataset Confusion Matrix</h4>
+                <p >LA-GCN detailed classification performance analysis</p>
+            </div>
+            <div >
+                <!-- 🔽 在这里替换成你的图片 -->
+                <img src="images/confusion_matrix.png" alt="LA-GCN Confusion Matrix" >
+                
+                <p >
+                    The confusion matrix above shows the detailed classification performance of LA-GCN on the ANUBIS dataset. 
+                    This visualization provides insights into which action classes are most challenging and where the model tends to make classification errors, 
+                    helping to understand the remaining challenges in skeletal action recognition.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-        <!-- Citation Section -->
-        <div id="citation-section"></div>
+
+</div>
+
+
+        <div id="citation-section">
+<section id="citation" class="section">
+    <div class="citation-section">
+        <div class="citation-container">
+            <h2 class="citation-title">Citation</h2>
+            <div class="citation-box">
+                <pre class="citation-text">
+@misc{liu2025representationcentricsurveyskeletalaction,
+      title={Representation-Centric Survey of Skeletal Action Recognition and the ANUBIS Benchmark}, 
+      author={Yang Liu and Jiyao Yang and Madhawa Perera and Pan Ji and Dongwoo Kim and Min Xu and Tianyang Wang and Saeed Anwar and Tom Gedeon and Lei Wang and Zhenyue Qin},
+      year={2025},
+      eprint={2205.02071},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2205.02071}, 
+}
+                </pre>
+                <button class="copy-button" onclick="copyCitation()">
+                    📋 Copy
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
     </main>
 
     <script src="js/main.js"></script>
-    <script>
-        // Load all sections
-        document.addEventListener('DOMContentLoaded', function() {
-            loadSection('components/authors.html', 'authors-section');
-            loadSection('components/overview.html', 'overview-section');
-            loadSection('components/dataset.html', 'dataset-section');
-            loadSection('components/results.html', 'results-section');
-            loadSection('components/citation.html', 'citation-section');
-        });
-
-        function loadSection(file, targetId) {
-            fetch(file)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(targetId).innerHTML = data;
-                })
-                .catch(error => console.error('Error loading section:', error));
-        }
-    </script>
+    <script src="js/background.js"></script>
 </body>
 </html>
+

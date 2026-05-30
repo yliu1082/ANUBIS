@@ -4,17 +4,14 @@
 function copyCitation() {
     const citationText = document.querySelector('.citation-text').textContent;
     const copyButton = document.querySelector('.copy-button');
-    const feedback = document.getElementById('copyFeedback');
-    
     navigator.clipboard.writeText(citationText).then(() => {
         // Show success feedback
-        feedback.classList.add('show');
+        const originalText = copyButton.innerHTML;
         copyButton.innerHTML = '✅ Copied!';
         
         // Reset after 2 seconds
         setTimeout(() => {
-            feedback.classList.remove('show');
-            copyButton.innerHTML = '📋 Copy';
+            copyButton.innerHTML = originalText;
         }, 2000);
     }).catch(() => {
         // Fallback copy method
@@ -25,11 +22,10 @@ function copyCitation() {
         textArea.select();
         try {
             document.execCommand('copy');
-            feedback.classList.add('show');
+            const originalText = copyButton.innerHTML;
             copyButton.innerHTML = '✅ Copied!';
             setTimeout(() => {
-                feedback.classList.remove('show');
-                copyButton.innerHTML = '📋 Copy';
+                copyButton.innerHTML = originalText;
             }, 2000);
         } catch (err) {
             console.error('Copy failed', err);
@@ -99,13 +95,50 @@ function initializeStatsAnimation() {
     }, 500);
 }
 
+// Nav scroll behavior
+function initializeNavScroll() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    // Initial check
+    if (window.scrollY <= 50) {
+        nav.classList.add('nav-hidden');
+    }
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY <= 50) {
+            nav.classList.add('nav-hidden');
+        } else {
+            nav.classList.remove('nav-hidden');
+        }
+    });
+}
+
+// Scroll-reveal: fade sections in as they enter the viewport
+function initializeScrollReveal() {
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    sections.forEach((section, i) => {
+        // Stagger delay for multiple sections visible at once
+        section.style.transitionDelay = `${i * 0.05}s`;
+        observer.observe(section);
+    });
+}
+
 // Initialize all functionality after page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize navigation after all sections are loaded
-    setTimeout(() => {
-        initializeNavigation();
-        initializeStatsAnimation();
-    }, 1000);
+    initializeNavigation();
+    initializeStatsAnimation();
+    initializeNavScroll();
+    initializeScrollReveal();
 });
 
 // Make functions globally available
