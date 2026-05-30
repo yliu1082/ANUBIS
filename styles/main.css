@@ -100,10 +100,8 @@ nav.nav-hidden { transform: translateY(-100%); opacity: 0; pointer-events: none;
     overflow: hidden;
     border-radius: 50%;
     background: transparent;
-    border: 1px solid rgba(226, 198, 128, 0.72);
-    box-shadow:
-        0 0 14px rgba(226, 198, 128, 0.32),
-        0 2px 8px rgba(0, 0, 0, 0.5);
+    border: 0;
+    box-shadow: none;
     flex: 0 0 auto;
 }
 .logo-icon {
