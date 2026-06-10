@@ -194,10 +194,10 @@ main {
 }
 
 /* ===================== BUTTONS ===================== */
-.hero-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.2rem; }
+.hero-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.1rem; }
 .btn {
     display: inline-flex; align-items: center; gap: 0.6rem;
-    padding: 0.85rem 2.2rem;
+    padding: 0.85rem 1.75rem;
     text-decoration: none;
     font-family: 'Cinzel', serif;
     font-size: 0.85rem;
@@ -368,6 +368,15 @@ main p {
     color: var(--gold);
     font-size: 1rem;
 }
+.overview-video {
+    margin: -0.4rem auto 3.2rem;
+}
+.overview-video .example-header {
+    margin-bottom: 1.25rem;
+}
+.overview-video .action-name {
+    font-size: 1.45rem;
+}
 .section-kicker {
     display: inline-flex;
     align-items: center;
@@ -530,6 +539,11 @@ main p {
     border-bottom: 1px solid rgba(197, 160, 89, 0.2);
 }
 .example-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.video-feature-item {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .example-header { margin-bottom: 2rem; text-align: center; }
 .action-name {
     font-size: 1.6rem;
@@ -552,6 +566,13 @@ main p {
     border: 1px solid var(--border);
     transition: all var(--transition);
     position: relative;
+}
+.video-column-wide {
+    padding: 1.35rem;
+}
+.video-column-wide .video-wrapper video {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
 }
 .video-column::before {
     content: '';
@@ -826,6 +847,7 @@ main p {
     height: 46px;
     border-bottom: 1px solid rgba(197, 160, 89, 0.16);
     vertical-align: middle;
+    background-clip: padding-box;
 }
 .benchmark-table .complete-results-table thead th {
     background: #f4ead8;
@@ -844,13 +866,13 @@ main p {
     background: #fbf3e6;
 }
 .benchmark-table .complete-results-table tbody td {
-    background: rgba(255,255,255,0.88);
+    background: #fffdf8;
 }
 .benchmark-table .complete-results-table tbody tr:nth-child(even) td {
-    background: rgba(253,250,244,0.92);
+    background: #fbf6ec;
 }
 .benchmark-table .complete-results-table tbody tr:hover td {
-    background: rgba(197, 160, 89, 0.13);
+    background: #f4e7d3;
 }
 .benchmark-table .complete-results-table tr.category-header {
     display: none;
@@ -884,7 +906,25 @@ main p {
 .benchmark-table .complete-results-table td:nth-child(9),
 .benchmark-table .complete-results-table th:nth-child(8),
 .benchmark-table .complete-results-table th:nth-child(9) {
-    background-color: rgba(166, 104, 68, 0.1);
+    background-color: #f3e7da;
+}
+.benchmark-table .complete-results-table td:nth-child(10),
+.benchmark-table .complete-results-table td:nth-child(11),
+.benchmark-table .complete-results-table thead tr:first-child th:nth-child(7),
+.benchmark-table .complete-results-table thead tr:first-child th:nth-child(8) {
+    background-color: #fff8ed;
+}
+.benchmark-table .complete-results-table thead tr:first-child th:nth-child(8),
+.benchmark-table .complete-results-table tbody td:nth-child(11) {
+    background-color: #fffaf4;
+}
+.benchmark-table .complete-results-table tbody tr:nth-child(even) td:nth-child(10),
+.benchmark-table .complete-results-table tbody tr:nth-child(even) td:nth-child(11) {
+    background-color: #f8efe2;
+}
+.benchmark-table .complete-results-table tbody tr:hover td:nth-child(10),
+.benchmark-table .complete-results-table tbody tr:hover td:nth-child(11) {
+    background-color: #f1dfc8;
 }
 .benchmark-table .badge {
     min-width: 70px;
